@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Intro</title>
+</head>
+<body>
+  <script src="http://koda.nu/simple.js">
+
+
+rectangle(200, 200, 400, 250, "blue")  // flagga, blå
+line(400, 200, 400, 450, 10, "yellow")  // flagga, gul
+line(200, 325, 600, 325, 10, "yellow")  //flagga, gul
+
+
+rectangle(200, 175, 10, 500, "grey") // flaggstång, grå
+circle(205, 185, 20, "gold")  // toppen av flaggstång
+
+
+text(250,50, 50, "I ❤️ PROGRAMERING", "GOLD") //TEXT
+
+
+
+var color = "pink";
+var storlek = 30;
+ring(900, 400, 200, 30, color)
+ring(700, 430, 170, storlek, "red")
+
+var face = {
+    x: random(100, totalWidth - 100),
+    y: random(200, 800),
+    color: mixColor(random(256), random(256), random(256)),
+    mun: 50
+}
+
+circle(face.x, face.y, 100, face.color)
+circle(face.x - 50, face.y - 50, 25, "white")
+circle(face.x + 50, face.y - 50, 25, "white")
+rectangle(face.x, face.y, face.mun, 20, "white")
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>
