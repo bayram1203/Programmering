@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kapitel 1 Lektion 2</title>
+</head>
+<body>
+  <script src="http://koda.nu/simple.js">
+
+  // 1. Skapa variabler för första figuren
+  var x = 200; // röd höger vänster
+  var y = 700; // röd upp ner 
+  var storlek = 300; // röd storlek 
+  var farg = "red"
+
+  // Rita första figuren med variabler
+  //circle(x, y, storlek, farg);
+
+  // 2. Skapa ett objekt för andra figuren (player)
+  var player = { x: 1000, y: 200, size: 30, color: "purple" };
+
+  // Rita andra figuren med objektets egenskaper
+  //circle(player.x, player.y, player.size, player.color);
+
+
+var spelare ={
+    x: 800, 
+    y: 525
+}
+
+
+  line(spelare.x, spelare.y + 100, spelare.x, spelare.y + 300, 10, "red");
+  ring(spelare.x, spelare.y + 50, 50, 10, "red")
+  rectangle(spelare.x - 75, spelare.y + 150, 150, 10, "red")
+  line(spelare.x, spelare.y + 300, spelare.x - 75, spelare.y + 375, 10, "red")
+  line(spelare.x, spelare.y + 300, spelare.x + 75, spelare.y + 375, 10, "red")
+
+
+  var player = {
+    x:200,
+    y:100
+  }
+
+  var enemy ={
+    x:300,
+    y:200,
+    farg: mixColor(random(255), random(255), random(255))
+  }
+// två objekt en cirkel och en rektangle 
+  circle(spelare.x,spelare.y,50, "blue")
+rectangle(enemy.x,enemy.y,enemy.x + 100,enemy.y, enemy.farg)
+
+  </script>
+</body>
+</html>
+
+
+
+
+
