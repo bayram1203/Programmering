@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Intro</title>
+</head>
+<body>
+  <script src="http://koda.nu/simple.js">
+    var player = {
+      x: 200,
+y: 200,
+size: 40,
+color: "blue",
+speedX: 20,
+speedY: 20,
+direction: -1,
+directionY: -1 
+    };
+
+
+function update(){
+  clearScreen();
+  // circle(player.x, player.y, player.size,player.color);
+  rectangle(player.x, player.y, 190,100,player.color)
+  picture(player.x,player.y,"https://shorturl.at/tQfCC", 150,100)
+  player.x = player.x + player.speedX * player.direction;
+  player.y = player.y + player.speedY * player.directionY;
+  
+  if (player.x + 150 > totalWidth) {
+    player.color = mixColor(random(256), random(256), random(256))
+    player.direction = -1;
+  }
+  if (player.x < 0) {
+    player.color = mixColor(random(256), random(256), random(256))
+    player.direction = 1;
+  }
+  if (player.y < 0) {
+    player.color = mixColor(random(256), random(256), random(256))
+    player.directionY = 1;
+  }
+  if(player.y + 100 > totalHeight) {
+    player.color = mixColor(random(256), random(256), random(256))
+    player.directionY = -1
+  }
+  if(player.x < 0 && player.y < 0){
+  text(400,400,40, "you win", "gold")
+stopUpdate()
+  }
+}
+    //studsa mot nederkant - saknas!
+  </script>
+</body>
+</html>
