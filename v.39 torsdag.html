@@ -8,7 +8,7 @@
 </head>
 <body>
   <script src="http://koda.nu/simple.js">
- 
+ var speed =prompt("hur snabb?")
  
  var player = { x: 100, y: 300, size: 20, color: "blue", speed: 4 };
  
@@ -26,23 +26,40 @@ function drawZombie(x,y){
     rectangle(x - 35, y - 20, 30, 14,"lightgreen")
     rectangle(x - 20, y - 20, 30, 14, "gray")
 }
+function drawPlayer(x,y){
+        rectangle(x + 3, y - 10, 23, 65, "black")
+    rectangle(x + 3, y - 25, 23, 65, "red")
+    circle(x + 15, y - 40, 20, "black")
+    circle(x, y - 40, 3, "red")
+    circle(x + 27, y - 40, 3, "red")
+    rectangle(x - 20, y - 20, 30, 14,"black")
+    rectangle(x + 20, y - 20, 30, 14, "black")
+}
  
  
  
 function update() {
   clearScreen();
   text(20, 30, 24, "Zombiespelet", "black");
+
  
   // STEG 1b: rita de tre zombierna här
   drawZombie(zombie1.x, zombie1.y)
   drawZombie(zombie2.x, zombie2.y)
   drawZombie(zombie3.x, zombie3.y)
   drawZombie(zombie4.x, zombie4.y)
+ drawPlayer(player.x, player.y)
+
+ zombie1.x = zombie1.x-speed
+  zombie2.x = zombie2.x-speed
+   zombie3.x = zombie3.x-speed
+    zombie4.x = zombie4.x-speed
  
-  circle(player.x, player.y, player.size, player.color);
  
   if (keyboard.right) {
     player.x = player.x + player.speed;
+   
+    
   }
   if (keyboard.left) {
     player.x = player.x - player.speed;
@@ -58,16 +75,21 @@ function update() {
   // I varje distance så behöver zombie vara unik. 
   if(distance(player,zombie1) < 65){
     text(20, 70, 30, "AJ!", "red")
+stopUpdate()
   }
    if(distance(player,zombie2) < 65){
     text(20, 70, 30, "AJ!", "red")
+    alert("game over")
   }
  
   if(distance(player,zombie3) < 65){
     text(20, 70, 30, "AJ!", "red")
+    window.location.reload()
   }
   if(distance(player,zombie4) < 65){
     text(20, 70, 30, "AJ!", "red")
+    player.x = 100
+    player.y = 300
   }
   console.log(distance(player,zombie1))
 }
