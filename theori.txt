@@ -1,0 +1,8 @@
+1. Ett program som påverkat samhället
+Google Maps är ett program som många använder. Det hjälper människor att hitta vägen och planera resor. Det gör det lättare att resa och sparar tid. Men om programmet visar fel väg kan människor hamna fel.
+2. Vilken nytta kan mitt spel göra?
+Mitt spel kan göra människor glada och ge dem något roligt att göra. Det kan också hjälpa människor att tänka och lösa problem. Om många spelar kan de också spela tillsammans och lära känna nya personer.
+1. Vad betyder algoritmisk bias?
+Det betyder att ett datorprogram kan behandla människor olika och orättvist. I mitt spel kan vissa spelare till exempel få lättare uppgifter än andra. Därför är det viktigt att testa spelet så att alla får spela på samma villkor.
+2.
+Ett stort system, till exempel ett flygbokningssystem, kan innehålla flera miljoner rader kod. Min egen kod har mycket färre rader, kanske runt 50–100 rader. Det visar att stora system är mycket mer avancerade och har mycket mer kod än mitt eget program.
