@@ -8,20 +8,101 @@
 </head>
 <body>
   <script src="http://koda.nu/simple.js">
+  
+  // variablar 
+  var player1={
+    x:500,
+    y:750,
+    size:40,
+    color:"brown",
+    speedX: 5,
+    speedY: 3
+  }
+
+    var player2={
+      x:1000,
+      y: 750,
+      size: 40,
+      color: "brown",
+       speedX: 5,
+    speedY: 3
+    }
+
+
+
+   
+   
+   
    function update() {
-rectangle (0, 700, 2000, 800, "gray")
-rectangle (10, 150, 150, 550, "darkgray")
-rectangle (230, 200, 150, 500, "darkgray")
-rectangle (450, 100, 150, 600, "darkgray")
-rectangle (670, 700, 150, 650, "brown")
+rectangle (0, 700, 2000, 800, "black") //svarta marken
+// rectangle (10, 150, 150, 550, "darkgray")
+// rectangle (230, 200, 150, 500, "darkgray")
+// rectangle (450, 100, 150, 600, "darkgray")
+// rectangle (670, 430, 150, 600, "brown")
+picture (0, 0, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsVhyAqV2q51MFPBImTQ01Q2w-SBO3EjNwaPyzRiCU5eiQrmY8-Qv58ys&s=10", totalWidth, totalHeight - 200) // bagrunds bilden
 
 
+// Jag loppa dom vitta stäcken på gatan 
 for(i = 0; i < 300; i++) {
     rectangle (3 + (i * 70),790, 50, 23, "white")
+
+  }
+// Crazy man
+circle(player1.x, player1.y, player1.size, player1.color)
+circle(player1.x - 15, player1.y - 12, player1.size- 31, "white")
+circle(player1.x + 15, player1.y - 12, player1.size - 31, "white")
+circle(player1.x - 15, player1.y - 12, player1.size- 38, "black")
+circle(player1.x + 15, player1.y - 12, player1.size - 38, "black")
+
+// crazy women
+circle( player2.x + 300, player2.y, player2.size, "peachpuff" )
+circle(player2.x + 285, player2.y - 12, player2.size- 31, "white")
+circle(player2.x + 315, player2.y - 12, player2.size - 31, "white")
+circle(player2.x + 285, player2.y - 12, player2.size- 38, "black")
+circle(player2.x + 315, player2.y - 12, player2.size - 38, "black")
+
+
+
+
+
+
+if(keyboard.d) {
+  player1.x = player1.x + player1.speedX
+}
+if (keyboard.a) {
+  player1.x = player1.x - player1.speedX
 }
 
+if(keyboard.w) {
+  player1.y = player1.y - player1.speedY
+}
 
+if(keyboard.right) {
+  player2.x = player2.x + player2.speedX
+}
+if (keyboard.left) {
+  player2.x = player2.x - player2.speedX
+}
 
+if(keyboard.up) {
+  player2.y = player2.y - player2.speedY
+}
+
+  if(player1.x + player1.size> totalWidth){
+    player1.x = totalWidth - player1.size
+  }
+    if(player1.x - player1.size < 0){
+    player1.x = player1.size
+  }
+
+  
+  if(player2.x + player2.size> totalWidth){
+    player2.x = totalWidth - player2.size
+  }
+    if(player2.x - player2.size < 0){
+    player2.x = player2.size
+  
+ 
 }
 
 
