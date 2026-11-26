@@ -8,7 +8,11 @@
 </head>
 <body>
   <script src="http://koda.nu/simple.js">
-  
+
+
+   var ground = 750;
+  var jumpPower = 14;
+  var gravity = 0,8;
   // variablar 
   var player1={
     x:500,
@@ -16,11 +20,12 @@
     size:40,
     color:"brown",
     speedX: 5,
-    speedY: 3
+    speedY: 3,
+    vy: 0
   }
 
     var player2={
-      x:1000,
+      x:1300,
       y: 750,
       size: 40,
       color: "brown",
@@ -55,11 +60,11 @@ circle(player1.x - 15, player1.y - 12, player1.size- 38, "black")
 circle(player1.x + 15, player1.y - 12, player1.size - 38, "black")
 
 // crazy women
-circle( player2.x + 300, player2.y, player2.size, "peachpuff" )
-circle(player2.x + 285, player2.y - 12, player2.size- 31, "white")
-circle(player2.x + 315, player2.y - 12, player2.size - 31, "white")
-circle(player2.x + 285, player2.y - 12, player2.size- 38, "black")
-circle(player2.x + 315, player2.y - 12, player2.size - 38, "black")
+circle(player2.x , player2.y, player2.size, "peachpuff" )
+circle(player2.x - 15, player2.y - 12, player2.size- 31, "white")
+circle(player2.x + 15, player2.y - 12, player2.size - 31, "white")
+circle(player2.x - 15, player2.y - 12, player2.size- 38, "black")
+circle(player2.x + 15, player2.y - 12, player2.size - 38, "black")
 
 
 
@@ -73,9 +78,24 @@ if (keyboard.a) {
   player1.x = player1.x - player1.speedX
 }
 
-if(keyboard.w) {
-  player1.y = player1.y - player1.speedY
-}
+  if(keyboard.space && player.y == ground)  {
+    player.vy = -jumpPower;
+  } 
+
+  player1.vy = player1.vy + gravity
+  player1.y = player1.y + player1.vy
+
+  if(player1.y > ground)
+  player1.y = ground;
+player1.vy = 0;
+  //else {
+  //   if(player1.y < groundLevel)
+  //   player1.y = player1.y + player1.speedY
+  // }
+  
+// if(keyboard.w) {
+//   player1.y = player1.y - player1.speedY
+// }
 
 if(keyboard.right) {
   player2.x = player2.x + player2.speedX
@@ -84,24 +104,28 @@ if (keyboard.left) {
   player2.x = player2.x - player2.speedX
 }
 
-if(keyboard.up) {
-  player2.y = player2.y - player2.speedY
-}
+// if(keyboard.up) {
+//   player2.y = player2.y - player2.speedY
+// }
 
   if(player1.x + player1.size> totalWidth){
     player1.x = totalWidth - player1.size
+    // console.log("bbbb")
   }
     if(player1.x - player1.size < 0){
     player1.x = player1.size
   }
 
-  
-  if(player2.x + player2.size> totalWidth){
+    if(player2.x + player2.size> totalWidth){
     player2.x = totalWidth - player2.size
+    // console.log("bbbb")
   }
     if(player2.x - player2.size < 0){
     player2.x = player2.size
   }
+
+ 
+
  
 }
 
