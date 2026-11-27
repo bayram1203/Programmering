@@ -30,7 +30,8 @@
       size: 40,
       color: "brown",
        speedX: 5,
-    speedY: 3
+    speedY: 3,
+    vy: 0
     }
 
 
@@ -96,6 +97,17 @@ if(keyboard.right) {
 if (keyboard.left) {
   player2.x = player2.x - player2.speedX
 }
+
+  if(keyboard.up && player2.y == ground)  {
+    player2.vy = -jumpPower;
+  } 
+
+  player2.vy = player2.vy + gravity
+  player2.y = player2.y + player2.vy
+
+  if(player2.y > ground)
+  player2.y = ground;
+player2.vy = 0;
 
 
   if(player1.x + player1.size> totalWidth){
