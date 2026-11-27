@@ -11,8 +11,8 @@
 
 
    var ground = 750;
-  var jumpPower = 70;
-  var gravity = 2;
+  var jumpPower = 14;
+  var gravity = 0.8;
   // variablar 
   var player1={
     x:500,
@@ -21,7 +21,8 @@
     color:"brown",
     speedX: 5,
     speedY: 3,
-    vy: 0
+    vy: 0,
+    directionRight: true
   }
 
     var player2={
@@ -33,6 +34,9 @@
     speedY: 3,
     vy: 0
     }
+
+// var directionRight = true
+    var bullets = []
 
 
 
@@ -74,10 +78,12 @@ circle(player2.x + 15, player2.y - 12, player2.size - 38, "black")
 //spelare 1 rör sig höger
 if(keyboard.d) {
   player1.x = player1.x + player1.speedX
+  player1.directionRight = true
 }
 //spelare 1 rör sig vänster
 if (keyboard.a) {
   player1.x = player1.x - player1.speedX
+   player1.directionRight = false
 }
 //spelare 1 hoppar/gravitation
   if(keyboard.space && player1.y == ground)  {
@@ -87,9 +93,11 @@ if (keyboard.a) {
   player1.vy = player1.vy + gravity
   player1.y = player1.y + player1.vy
 //gravitation/hopp
-  if(player1.y > ground)
-  player1.y = ground;
-player1.vy = 0;
+  if(player1.y > ground) {
+    player1.y = ground;
+    player1.vy = 0;
+  }
+
 
 //spelare 2 rör sig höger
 if(keyboard.right) {
@@ -109,10 +117,12 @@ if (keyboard.left) {
 
 
   // spelare 2 hoppar/gravitation
-  if(player2.y > ground)
+  // ett proplem jag möte var att spelare 1 och 2 kunde inte hoppa ordentilgt. När jagh hoppa så fastnade dom i luften och sen flöt ner långsam.
+  //Jag löste problemet med hjälp av Ai som finns inne i visual sdudio code, och problemet var att jag hade glömt {}
+  if(player2.y > ground) {
   player2.y = ground;
 player2.vy = 0;
-
+  }
 // så spelare 1 kan inte röra sig unaför mappen
   if(player1.x + player1.size> totalWidth){
     player1.x = totalWidth - player1.size
@@ -130,10 +140,42 @@ player2.vy = 0;
     player2.x = player2.size
   }
 
- 
+ // spelare 1 skjuta
 
- 
+ if(keyboard.c){
+   console.log("hbbh")
+   var direction = player1.directionRight ? 1 : -1
+   bullets.push( {x: 100, y:100, s:10, c: "red", direction: direction, speed: 7})
+
+ }
+// ett promblem jag hadde var att jag råka lägga if satsen utanför for, me jag löste det med hjälp av ai i visual studio code
+    for(var i = 0; i < bullets.length; i++) {
+      circle(bullets[i].x, bullets[i].y, bullets[i].s, bullets[i].c)
+        bullets[i].x = bullets[i].x + bullets[i].speed * bullets[i].direction;
+      }
+   
+    }
+
+
+
+ // OM directionRight är sann, 
+ //   så ska bullets[i].x öka
+ // Annars 
+ //   så ska bullets[i].x minska 0
+
+
+
+
+
+// spelare 2 skjuta
+
+if(keyboard.m){
+  console.log("daa")
 }
+
+
+
+
 
 
 
@@ -149,8 +191,7 @@ player2.vy = 0;
 
 
 
-
-
+// nästa vecka ska jag göra min skjut variablen till en function så det blir lättare i framtiden 
 
 
 
