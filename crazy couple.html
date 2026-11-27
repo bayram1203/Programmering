@@ -71,45 +71,49 @@ circle(player2.x + 15, player2.y - 12, player2.size - 38, "black")
 
 
 
-
+//spelare 1 rör sig höger
 if(keyboard.d) {
   player1.x = player1.x + player1.speedX
 }
+//spelare 1 rör sig vänster
 if (keyboard.a) {
   player1.x = player1.x - player1.speedX
 }
-
+//spelare 1 hoppar/gravitation
   if(keyboard.space && player1.y == ground)  {
     player1.vy = -jumpPower;
   } 
-
+//graitation/hopp
   player1.vy = player1.vy + gravity
   player1.y = player1.y + player1.vy
-
+//gravitation/hopp
   if(player1.y > ground)
   player1.y = ground;
 player1.vy = 0;
 
-
+//spelare 2 rör sig höger
 if(keyboard.right) {
   player2.x = player2.x + player2.speedX
 }
+//spelare 2 rör sig vänster
 if (keyboard.left) {
   player2.x = player2.x - player2.speedX
 }
-
+// spelare 2 hoppar/gravitation
   if(keyboard.up && player2.y == ground)  {
     player2.vy = -jumpPower;
   } 
-
+//spelare 2 hoppar/gravitation
   player2.vy = player2.vy + gravity
   player2.y = player2.y + player2.vy
 
+
+  // spelare 2 hoppar/gravitation
   if(player2.y > ground)
   player2.y = ground;
 player2.vy = 0;
 
-
+// så spelare 1 kan inte röra sig unaför mappen
   if(player1.x + player1.size> totalWidth){
     player1.x = totalWidth - player1.size
     // console.log("bbbb")
@@ -117,7 +121,7 @@ player2.vy = 0;
     if(player1.x - player1.size < 0){
     player1.x = player1.size
   }
-
+// spelare 2 kan inte röra sig utanför mappen
     if(player2.x + player2.size> totalWidth){
     player2.x = totalWidth - player2.size
     // console.log("bbbb")
